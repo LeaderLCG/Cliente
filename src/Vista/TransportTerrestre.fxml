@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.TransportTerrestreController">
+    <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0">
+         <image>
+            <Image url="@Imagenes/f.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="51.0" layoutX="11.0" stroke="#8a8a8a" strokeType="INSIDE" width="573.0" />
+      <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="39.0" layoutY="4.0" onMouseClicked="#Inicio">
+         <image>
+            <Image url="@Imagenes/home.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="113.0" layoutY="8.0" mnemonicParsing="false" onAction="#Terrestre" prefHeight="35.0" prefWidth="80.0" text="Terrestre" />
+      <Button layoutX="236.0" layoutY="8.0" mnemonicParsing="false" onAction="#Aereo" prefHeight="35.0" prefWidth="80.0" text="Aereo" />
+      <Button layoutX="354.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hoteles" prefHeight="35.0" prefWidth="80.0" text="Hoteles" />
+      <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#Pagos" prefHeight="35.0" prefWidth="80.0" text="Pagos" />
+      <Label layoutX="86.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Origen" />
+      <Label layoutX="289.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Destinos" />
+      <TableView fx:id="Carros" layoutX="42.0" layoutY="119.0" prefHeight="200.0" prefWidth="550.0">
+        <columns>
+            <TableColumn fx:id="ID" prefWidth="66.0" text="ID" />
+            <TableColumn fx:id="Origen" prefWidth="81.0" text="Origen" />
+            <TableColumn fx:id="Destino" minWidth="7.0" prefWidth="85.0" text="Destino" />
+          <TableColumn fx:id="Fecha" prefWidth="91.0" text="Fecha" />
+          <TableColumn fx:id="Hora" prefWidth="65.0" text="Hora" />
+            <TableColumn fx:id="Asientos" prefWidth="85.0" text="No. Asientos" />
+            <TableColumn fx:id="Costos" prefWidth="72.0" text="Costo" />
+        </columns>
+      </TableView>
+      <Button layoutX="266.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReservarBoleto" text="Reservar" />
+      <ComboBox fx:id="Origenes" layoutX="86.0" layoutY="86.0" prefWidth="150.0" />
+      <ComboBox fx:id="Destinos" layoutX="284.0" layoutY="86.0" prefWidth="150.0" />
+      <Button layoutX="482.0" layoutY="74.0" mnemonicParsing="false" onAction="#Buscar" text="Buscar" />
+   </children>
+</AnchorPane>
