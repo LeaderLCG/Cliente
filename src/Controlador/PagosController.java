@@ -86,16 +86,20 @@ public class PagosController implements Initializable {
     
     
   /*
-    Al cargar la ventana se deben mostrar todos los conceptos a pagar guardados en el carrito dentro de a tabla de conceptos
-    a pagar. Y debe calcular el monto total de los conceptos a pagar y concatenarlo con el texto que esta en el label PagoTotal.
-    Para refrescar la pantalla despues de una accion en esta pantalla podrias mandar a llamar al metodo startPagos() a fin de
+    Al cargar la ventana se deben mostrar todos los conceptos a pagar guardados 
+    en el carrito dentro de a tabla de conceptos
+    a pagar. Y debe calcular el monto total de los conceptos a pagar y concatenarlo
+    con el texto que esta en el label PagoTotal.
+    Para refrescar la pantalla despues de una accion en esta pantalla podrias 
+    mandar a llamar al metodo startPagos() a fin de
     actualizar la informacion de la tabla de conceptos a pagar
     */
 
     @FXML
     private void borrarConcepto(ActionEvent event) {
         /*
-        Selecciona un elemento de la tabla y con esta accion elimina dicho elemento del carrito para disminuir la cuienta total a pagar
+        Selecciona un elemento de la tabla y con esta accion elimina dicho 
+        elemento del carrito para disminuir la cuienta total a pagar
         */
     }
 
@@ -109,9 +113,12 @@ public class PagosController implements Initializable {
     @FXML
     private void Pagar(ActionEvent event) {
         /*
-        Debes leer la caja de texto de PAGOS para saber el numero de cuenta del cliente, luego estableces nuestro numero de cuenta (de la empresa)
-        ya que siempre va a ser el mismo, el usuario no lo escribe, y al final envias el monto total, el usuario tampoco escribe eso.
-        Cabe mencionar que al regalizar el pago del carrito este se vuelve a vaciar por completo asi que ejecutas e metodo vaciarCarrito al final
+        Debes leer la caja de texto de PAGOS para saber el numero de cuenta del 
+        cliente, luego estableces nuestro numero de cuenta (de la empresa)
+        ya que siempre va a ser el mismo, el usuario no lo escribe, y al final 
+        envias el monto total, el usuario tampoco escribe eso.
+        Cabe mencionar que al regalizar el pago del carrito este se vuelve a 
+        vaciar por completo asi que ejecutas e metodo vaciarCarrito al final
         */
         
     }
@@ -119,8 +126,17 @@ public class PagosController implements Initializable {
     @FXML
     private void BuscarHistorial(ActionEvent event) {
         /*
-        Lee la caja de texto de HISTORIAL para saber el numero de cuenta que se quiera consultar, luego despliegua los datos en la tabla
+        Lee la caja de texto de HISTORIAL para saber el numero de cuenta que se 
+        quiera consultar, luego despliegua los datos en la tabla
         */
+        String PruebaHistorialNoSplitted = consultarHistorial(TextNCuentaHistorial.getText());
+        
+    }
+
+    private static String consultarHistorial(java.lang.String noCompania) {
+        registro.pasarela.Pasarela_Service service = new registro.pasarela.Pasarela_Service();
+        registro.pasarela.Pasarela port = service.getPasarelaPort();
+        return port.consultarHistorial(noCompania);
     }
     
 }
