@@ -129,8 +129,21 @@ public class PagosController implements Initializable {
         Lee la caja de texto de HISTORIAL para saber el numero de cuenta que se 
         quiera consultar, luego despliegua los datos en la tabla
         */
-        String PruebaHistorialNoSplitted = consultarHistorial(TextNCuentaHistorial.getText());
-        String HistorialSplitted[]=PruebaHistorialNoSplitted.split(", ");
+        String HistorialNoSplitted = consultarHistorial(TextNCuentaHistorial.getText());
+        int x = 0, y = 0;
+        char[] arregloauxiliar = HistorialNoSplitted.toCharArray();
+        
+        for(int i=0; i<arregloauxiliar.length; i++){
+            switch(arregloauxiliar[i]){
+                case ',':
+                    x+=1;
+                    break;
+                case '\n':
+                    y+=1;
+            }
+        }
+        String[x][] HistorialSplitted;
+        
         
     }
 
