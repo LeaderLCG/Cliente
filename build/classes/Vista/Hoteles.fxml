@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.HotelesController">
+    <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0">
+         <image>
+            <Image url="@Imagenes/f.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="51.0" layoutX="11.0" stroke="#8a8a8a" strokeType="INSIDE" width="573.0" />
+      <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="39.0" layoutY="4.0" onMouseClicked="#Inicio">
+         <image>
+            <Image url="@Imagenes/home.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="113.0" layoutY="8.0" mnemonicParsing="false" onAction="#Terrestre" prefHeight="35.0" prefWidth="80.0" text="Terrestre" />
+      <Button layoutX="236.0" layoutY="8.0" mnemonicParsing="false" onAction="#Aereo" prefHeight="35.0" prefWidth="80.0" text="Aereo" />
+      <Button layoutX="354.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hoteles" prefHeight="35.0" prefWidth="80.0" text="Hoteles" />
+      <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#Pagos" prefHeight="35.0" prefWidth="80.0" text="Pagos" />
+   </children>
+</AnchorPane>

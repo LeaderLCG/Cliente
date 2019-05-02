@@ -43,7 +43,7 @@ public class Ventanas {
         stg.close();
         Parent root = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
         Scene scene = new Scene(root);
-        stg.setTitle("InicioIO...");
+        stg.setTitle("Inicio...");
         stg.setScene(scene); 
         stg.setHeight(420);
         stg.setWidth(619);
