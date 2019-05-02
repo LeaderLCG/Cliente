@@ -130,6 +130,7 @@ public class PagosController implements Initializable {
         quiera consultar, luego despliegua los datos en la tabla
         */
         String PruebaHistorialNoSplitted = consultarHistorial(TextNCuentaHistorial.getText());
+        String HistorialSplitted[]=PruebaHistorialNoSplitted.split(", ");
         
     }
 
