@@ -46,7 +46,7 @@ public class LoginController implements Initializable {
             fallo.setHeaderText("Hubo un fallo al inicar Sesión");
             fallo.setContentText("Tu usuario o contraseña tienen un error como todo lo demás en tu vida");
             fallo.initStyle(StageStyle.UTILITY);
-            fallo.show();
+            fallo.showAndWait();
             TextUsername.setText("");
             TextPassword.setText("");
         }else{
