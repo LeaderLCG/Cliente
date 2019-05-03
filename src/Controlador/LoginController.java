@@ -24,6 +24,8 @@ import mx.agencia.Usuario;
  */
 public class LoginController implements Initializable {
     
+    public static String neim;
+    
     Ventanas v = new Ventanas ();
     @FXML
     private TextField TextUsername;
@@ -40,7 +42,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void Inicio(ActionEvent event) throws Exception {
-        if(login(TextUsername.getText(), TextPassword.getText())==null){
+        if(login(TextUsername.getText(), TextPassword.getText()).equals(null)){
             Alert fallo = new Alert(AlertType.WARNING);
             fallo.setTitle("FALLO");
             fallo.setHeaderText("Hubo un fallo al inicar Sesión");
@@ -50,6 +52,7 @@ public class LoginController implements Initializable {
             TextUsername.setText("");
             TextPassword.setText("");
         }else{
+            neim=TextUsername.getText();
             v.startInicio();
         }
     }

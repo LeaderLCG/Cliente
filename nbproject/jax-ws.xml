@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="ClientesServer">
-      <wsdl-url>http://18.191.28.77:8080/Clientes/ClientesServer?wsdl</wsdl-url>
-      <local-wsdl-file>18.191.28.77_8080/Clientes/ClientesServer.wsdl</local-wsdl-file>
+      <wsdl-url>http://13.59.54.99:8080/Clientes/ClientesServer?wsdl</wsdl-url>
+      <local-wsdl-file>13.59.54.99_8080/Clientes/ClientesServer.wsdl</local-wsdl-file>
       <package-name>mx.agencia</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://18.191.28.77:8080/Clientes/ClientesServer?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://13.59.54.99:8080/Clientes/ClientesServer?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -35,8 +35,8 @@
       </wsimport-options>
     </client>
     <client name="Pasarela">
-      <wsdl-url>http://18.191.28.77:8080/pasarelaPago/Pasarela?wsdl</wsdl-url>
-      <local-wsdl-file>18.191.28.77_8080/pasarelaPago/Pasarela.wsdl</local-wsdl-file>
+      <wsdl-url>http://13.59.54.99:8080/pasarelaPago/Pasarela?wsdl</wsdl-url>
+      <local-wsdl-file>13.59.54.99_8080/pasarelaPago/Pasarela.wsdl</local-wsdl-file>
       <package-name>registro.pasarela</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -54,7 +54,39 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://18.191.28.77:8080/pasarelaPago/Pasarela?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://13.59.54.99:8080/pasarelaPago/Pasarela?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="carrito">
+      <wsdl-url>http://18.217.45.116:8080/teams/carrito?wsdl</wsdl-url>
+      <local-wsdl-file>18.217.45.116_8080/teams/carrito.wsdl</local-wsdl-file>
+      <package-name>mx.uv</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://18.217.45.116:8080/teams/carrito?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

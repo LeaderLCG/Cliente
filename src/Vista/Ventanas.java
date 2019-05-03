@@ -43,10 +43,10 @@ public class Ventanas {
         stg.close();
         Parent root = FXMLLoader.load(getClass().getResource("Inicio.fxml"));
         Scene scene = new Scene(root);
-        stg.setTitle("Inicio...");
+        stg.setTitle("InicioIO...");
         stg.setScene(scene); 
         stg.setHeight(420);
-        stg.setWidth(619);
+        stg.setWidth(614);
         stg.show();
         stg.setResizable(false);
     }
@@ -69,7 +69,7 @@ public class Ventanas {
         stg.setTitle("Terrestre...");
         stg.setScene(scene);  
         stg.setHeight(420);
-        stg.setWidth(619);
+        stg.setWidth(614);
         stg.show();
         stg.setResizable(false);
     }
@@ -80,7 +80,7 @@ public class Ventanas {
         stg.setTitle("Aereo...");
         stg.setScene(scene);  
         stg.setHeight(420);
-        stg.setWidth(619);
+        stg.setWidth(614);
         stg.show();
         stg.setResizable(false);
     }
@@ -91,7 +91,7 @@ public class Ventanas {
         stg.setTitle("Hoteles...");
         stg.setScene(scene);  
         stg.setHeight(420);
-        stg.setWidth(619);
+        stg.setWidth(614);
         stg.show();
         stg.setResizable(false);
     }
@@ -102,7 +102,7 @@ public class Ventanas {
         stg.setTitle("Pagos...");
         stg.setScene(scene);  
         stg.setHeight(420);
-        stg.setWidth(619);
+        stg.setWidth(614);
         stg.show();
         stg.setResizable(false);
     }

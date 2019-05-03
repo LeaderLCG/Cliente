@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://uv.mx/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://uv.mx/">
+
+<xs:element name="AgregarAlCarrito" type="tns:AgregarAlCarrito" />
+
+<xs:element name="AgregarAlCarritoResponse" type="tns:AgregarAlCarritoResponse" />
+
+<xs:element name="borrarArticulo" type="tns:borrarArticulo" />
+
+<xs:element name="borrarArticuloResponse" type="tns:borrarArticuloResponse" />
+
+<xs:element name="borrarCarrito" type="tns:borrarCarrito" />
+
+<xs:element name="borrarCarritoResponse" type="tns:borrarCarritoResponse" />
+
+<xs:element name="getAllCarrito" type="tns:getAllCarrito" />
+
+<xs:element name="getAllCarritoResponse" type="tns:getAllCarritoResponse" />
+
+<xs:complexType name="borrarCarrito">
+<xs:sequence>
+<xs:element name="idCliente" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarCarritoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarArticulo">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="cantidad" type="xs:int" />
+<xs:element name="idCliente" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarArticuloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCarrito">
+<xs:sequence>
+<xs:element name="idCliente" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAllCarritoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarAlCarrito">
+<xs:sequence>
+<xs:element name="nombreArticulo" type="xs:string" minOccurs="0" />
+<xs:element name="precioArticulo" type="xs:float" />
+<xs:element name="cantidadArticulo" type="xs:int" />
+<xs:element name="idCliente" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarAlCarritoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:float" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

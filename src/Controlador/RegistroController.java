@@ -73,5 +73,6 @@ public class RegistroController implements Initializable {
         mx.agencia.ClientesServer port = service.getClientesServerPort();
         return port.register(id, name, password, username);
     }
+
     
 }

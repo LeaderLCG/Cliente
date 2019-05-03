@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controlador.HotelesController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.HotelesController">
     <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0">
          <image>
@@ -26,5 +26,15 @@
       <Button layoutX="236.0" layoutY="8.0" mnemonicParsing="false" onAction="#Aereo" prefHeight="35.0" prefWidth="80.0" text="Aereo" />
       <Button layoutX="354.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hoteles" prefHeight="35.0" prefWidth="80.0" text="Hoteles" />
       <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#Pagos" prefHeight="35.0" prefWidth="80.0" text="Pagos" />
-   </children>
+       <TableView fx:id="Aviones" layoutX="25.0" layoutY="119.0" prefHeight="200.0" prefWidth="550.0">
+        <columns>
+            <TableColumn fx:id="ID" prefWidth="98.0" text="ID" />
+            <TableColumn fx:id="Hotel" prefWidth="130.0" text="Hotel" />
+            <TableColumn fx:id="Destino" minWidth="7.0" prefWidth="104.0" text="Destino" />
+            <TableColumn fx:id="Habitaciones" prefWidth="97.0" text="Habitaciones" />
+            <TableColumn fx:id="Costos" minWidth="4.0" prefWidth="90.0" text="Costo" />
+        </columns>
+      </TableView>
+      <Button layoutX="249.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReservarHabitacion" text="Reservar" />
+    </children>
 </AnchorPane>

@@ -27,45 +27,6 @@ public interface ClientesServer {
 
     /**
      * 
-     * @param password
-     * @param name
-     * @param tipoUsuario
-     * @param id
-     * @param username
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "updateUsuario", targetNamespace = "http://agencia.mx/", className = "mx.agencia.UpdateUsuario")
-    @ResponseWrapper(localName = "updateUsuarioResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.UpdateUsuarioResponse")
-    @Action(input = "http://agencia.mx/ClientesServer/updateUsuarioRequest", output = "http://agencia.mx/ClientesServer/updateUsuarioResponse")
-    public int updateUsuario(
-        @WebParam(name = "id", targetNamespace = "")
-        int id,
-        @WebParam(name = "name", targetNamespace = "")
-        String name,
-        @WebParam(name = "password", targetNamespace = "")
-        String password,
-        @WebParam(name = "tipoUsuario", targetNamespace = "")
-        String tipoUsuario,
-        @WebParam(name = "username", targetNamespace = "")
-        String username);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<mx.agencia.Usuario>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAllUsuarios", targetNamespace = "http://agencia.mx/", className = "mx.agencia.GetAllUsuarios")
-    @ResponseWrapper(localName = "getAllUsuariosResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.GetAllUsuariosResponse")
-    @Action(input = "http://agencia.mx/ClientesServer/getAllUsuariosRequest", output = "http://agencia.mx/ClientesServer/getAllUsuariosResponse")
-    public List<Usuario> getAllUsuarios();
-
-    /**
-     * 
      * @param id
      * @return
      *     returns int
@@ -96,6 +57,48 @@ public interface ClientesServer {
 
     /**
      * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://agencia.mx/", className = "mx.agencia.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.HelloResponse")
+    @Action(input = "http://agencia.mx/ClientesServer/helloRequest", output = "http://agencia.mx/ClientesServer/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * 
+     * @param password
+     * @param name
+     * @param tipoUsuario
+     * @param id
+     * @param username
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "updateUsuario", targetNamespace = "http://agencia.mx/", className = "mx.agencia.UpdateUsuario")
+    @ResponseWrapper(localName = "updateUsuarioResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.UpdateUsuarioResponse")
+    @Action(input = "http://agencia.mx/ClientesServer/updateUsuarioRequest", output = "http://agencia.mx/ClientesServer/updateUsuarioResponse")
+    public int updateUsuario(
+        @WebParam(name = "id", targetNamespace = "")
+        int id,
+        @WebParam(name = "name", targetNamespace = "")
+        String name,
+        @WebParam(name = "password", targetNamespace = "")
+        String password,
+        @WebParam(name = "tipoUsuario", targetNamespace = "")
+        String tipoUsuario,
+        @WebParam(name = "username", targetNamespace = "")
+        String username);
+
+    /**
+     * 
      * @param password
      * @param name
      * @param tipoUsuario
@@ -123,18 +126,15 @@ public interface ClientesServer {
 
     /**
      * 
-     * @param name
      * @return
-     *     returns java.lang.String
+     *     returns java.util.List<mx.agencia.Usuario>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://agencia.mx/", className = "mx.agencia.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.HelloResponse")
-    @Action(input = "http://agencia.mx/ClientesServer/helloRequest", output = "http://agencia.mx/ClientesServer/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
+    @RequestWrapper(localName = "getAllUsuarios", targetNamespace = "http://agencia.mx/", className = "mx.agencia.GetAllUsuarios")
+    @ResponseWrapper(localName = "getAllUsuariosResponse", targetNamespace = "http://agencia.mx/", className = "mx.agencia.GetAllUsuariosResponse")
+    @Action(input = "http://agencia.mx/ClientesServer/getAllUsuariosRequest", output = "http://agencia.mx/ClientesServer/getAllUsuariosResponse")
+    public List<Usuario> getAllUsuarios();
 
     /**
      * 

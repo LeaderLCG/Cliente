@@ -5,9 +5,12 @@
  */
 package Controlador;
 
-import Vista.Ventanas;
+import Modelo.TransaccionTable;
+import Modelo.Transporte;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,17 +18,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
  *
- * @author Asus
+ * @author laion
  */
 public class PagosController implements Initializable {
-
-    Ventanas v  = new Ventanas();
     
+    private static final String NUMERIC_STRING ="0123456789";
+
     @FXML
     private TableView<?> TablaPagos;
     @FXML
@@ -33,117 +37,102 @@ public class PagosController implements Initializable {
     @FXML
     private TableColumn<?, ?> PrecioConcepto;
     @FXML
-    private TableView<?> Historial;
-    @FXML
-    private TableColumn<?, ?> CuentaOrigen;
-    @FXML
-    private TableColumn<?, ?> CuentaDestino;
-    @FXML
-    private TableColumn<?, ?> Monto;
-    @FXML
-    private TableColumn<?, ?> Fecha;
-    @FXML
-    private TextField TextNCuentaHistorial;
-    @FXML
     private TextField TextNCuentaPagos;
     @FXML
     private Label PagoTotal;
+    @FXML
+    private TableView<TransaccionTable> Historial;
+    @FXML
+    private TableColumn<TransaccionTable, String> CuentaOrigen;
+    @FXML
+    private TableColumn<TransaccionTable, String> CuentaDestino;
+    @FXML
+    private TableColumn<TransaccionTable, String> Monto;
+    @FXML
+    private TableColumn<TransaccionTable, String> Fecha;
+    @FXML
+    private TextField TextNCuentaHistorial;
 
+    public static String Account(int i) {
+        StringBuilder builder = new StringBuilder();
+        while (i-- != 0) {
+            int character = (int)(Math.random()*NUMERIC_STRING.length());
+            builder.append(NUMERIC_STRING.charAt(character));
+        }
+        return builder.toString();
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        CuentaOrigen.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("CuentaOrigen"));
+        CuentaDestino.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("CuentaDestino"));
+        Monto.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("Monto"));
+        Fecha.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("Fecha"));
     }    
 
     @FXML
-    private void Inicio(MouseEvent event) throws Exception {
-        v.startInicio();
+    private void Inicio(MouseEvent event) {
     }
 
     @FXML
-    private void Terrestre(ActionEvent event) throws Exception {
-        v.startTerrestre();
+    private void Terrestre(ActionEvent event) {
     }
 
     @FXML
-    private void Aereo(ActionEvent event) throws Exception {
-        v.startAereo();
+    private void Aereo(ActionEvent event) {
     }
 
     @FXML
-    private void Hoteles(ActionEvent event) throws Exception {
-        v.startHoteles();
+    private void Hoteles(ActionEvent event) {
     }
 
     @FXML
-    private void Pagos(ActionEvent event) throws Exception {
-        v.startPagos();
+    private void Pagos(ActionEvent event) {
     }
-    
-    
-    
-    
-  /*
-    Al cargar la ventana se deben mostrar todos los conceptos a pagar guardados 
-    en el carrito dentro de a tabla de conceptos
-    a pagar. Y debe calcular el monto total de los conceptos a pagar y concatenarlo
-    con el texto que esta en el label PagoTotal.
-    Para refrescar la pantalla despues de una accion en esta pantalla podrias 
-    mandar a llamar al metodo startPagos() a fin de
-    actualizar la informacion de la tabla de conceptos a pagar
-    */
 
     @FXML
     private void borrarConcepto(ActionEvent event) {
-        /*
-        Selecciona un elemento de la tabla y con esta accion elimina dicho 
-        elemento del carrito para disminuir la cuienta total a pagar
-        */
     }
 
     @FXML
     private void vaciarCarrito(ActionEvent event) {
-      /*
-        Elimina todos los elementos del carrito
-        */
     }
 
     @FXML
     private void Pagar(ActionEvent event) {
-        /*
-        Debes leer la caja de texto de PAGOS para saber el numero de cuenta del 
-        cliente, luego estableces nuestro numero de cuenta (de la empresa)
-        ya que siempre va a ser el mismo, el usuario no lo escribe, y al final 
-        envias el monto total, el usuario tampoco escribe eso.
-        Cabe mencionar que al regalizar el pago del carrito este se vuelve a 
-        vaciar por completo asi que ejecutas e metodo vaciarCarrito al final
-        */
-        
     }
 
     @FXML
     private void BuscarHistorial(ActionEvent event) {
-        /*
-        Lee la caja de texto de HISTORIAL para saber el numero de cuenta que se 
-        quiera consultar, luego despliegua los datos en la tabla
-        */
-        String HistorialNoSplitted = consultarHistorial(TextNCuentaHistorial.getText());
-        int x = 0, y = 0;
-        char[] arregloauxiliar = HistorialNoSplitted.toCharArray();
-        
-        for(int i=0; i<arregloauxiliar.length; i++){
-            switch(arregloauxiliar[i]){
-                case ',':
-                    x+=1;
-                    break;
-                case '\n':
-                    y+=1;
+        String HistorialNoSplit = consultarHistorial(TextNCuentaHistorial.getText());
+        String[] HistorialSplitted = HistorialNoSplit.split(", ");
+        char[]HistorialCounter = HistorialNoSplit.toCharArray();
+        int Y=0;
+        for(int i=0; i<HistorialCounter.length; i++){
+            if(HistorialCounter[i]=='\n'){
+                Y++;
             }
         }
-        String[x][] HistorialSplitted;
         
+        String [][] MatrizHistorial = new String[Y][5];
+        int r=0;
+        for(int i=0; i<Y; i++){
+            for(int j=0; j<5; j++){
+                MatrizHistorial[i][j]=HistorialSplitted[r];
+                r++;
+            }
+        }
+        ObservableList<TransaccionTable> Transacciones = FXCollections.observableArrayList();
+        
+        for(int i=0; i<Y; i++){
+            Transacciones.add(new TransaccionTable (Account(3), MatrizHistorial[i][0], MatrizHistorial[i][1], MatrizHistorial[i][2], MatrizHistorial[i][3]));
+        }
+        
+        Historial.getItems().addAll(Transacciones);
         
     }
 

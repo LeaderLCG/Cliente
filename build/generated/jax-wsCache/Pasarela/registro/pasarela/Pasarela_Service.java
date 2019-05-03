@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "Pasarela", targetNamespace = "http://pasarela.registro/", wsdlLocation = "http://18.191.28.77:8080/pasarelaPago/Pasarela?wsdl")
+@WebServiceClient(name = "Pasarela", targetNamespace = "http://pasarela.registro/", wsdlLocation = "http://13.59.54.99:8080/pasarelaPago/Pasarela?wsdl")
 public class Pasarela_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class Pasarela_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://18.191.28.77:8080/pasarelaPago/Pasarela?wsdl");
+            url = new URL("http://13.59.54.99:8080/pasarelaPago/Pasarela?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

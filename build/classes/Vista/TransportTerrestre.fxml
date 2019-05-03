@@ -26,9 +26,9 @@
       <Button layoutX="236.0" layoutY="8.0" mnemonicParsing="false" onAction="#Aereo" prefHeight="35.0" prefWidth="80.0" text="Aereo" />
       <Button layoutX="354.0" layoutY="8.0" mnemonicParsing="false" onAction="#Hoteles" prefHeight="35.0" prefWidth="80.0" text="Hoteles" />
       <Button layoutX="482.0" layoutY="8.0" mnemonicParsing="false" onAction="#Pagos" prefHeight="35.0" prefWidth="80.0" text="Pagos" />
-      <Label layoutX="86.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Origen" />
-      <Label layoutX="289.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Destinos" />
-      <TableView fx:id="Carros" layoutX="42.0" layoutY="119.0" prefHeight="200.0" prefWidth="550.0">
+      <Label layoutX="69.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Origen" />
+      <Label layoutX="272.0" layoutY="63.0" prefHeight="17.0" prefWidth="54.0" text="Destinos" />
+      <TableView fx:id="Carros" layoutX="25.0" layoutY="119.0" prefHeight="200.0" prefWidth="550.0">
         <columns>
             <TableColumn fx:id="ID" prefWidth="66.0" text="ID" />
             <TableColumn fx:id="Origen" prefWidth="81.0" text="Origen" />
@@ -39,9 +39,9 @@
             <TableColumn fx:id="Costos" prefWidth="72.0" text="Costo" />
         </columns>
       </TableView>
-      <Button layoutX="266.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReservarBoleto" text="Reservar" />
-      <ComboBox fx:id="Origenes" layoutX="86.0" layoutY="86.0" prefWidth="150.0" />
-      <ComboBox fx:id="Destinos" layoutX="284.0" layoutY="86.0" prefWidth="150.0" />
-      <Button layoutX="482.0" layoutY="74.0" mnemonicParsing="false" onAction="#Buscar" text="Buscar" />
+      <Button layoutX="249.0" layoutY="345.0" mnemonicParsing="false" onAction="#ReservarBoleto" text="Reservar" />
+      <ComboBox fx:id="Origenes" layoutX="69.0" layoutY="86.0" prefWidth="150.0" />
+      <ComboBox fx:id="Destinos" layoutX="267.0" layoutY="86.0" prefWidth="150.0" />
+      <Button layoutX="465.0" layoutY="74.0" mnemonicParsing="false" onAction="#Buscar" text="Buscar" />
    </children>
 </AnchorPane>
