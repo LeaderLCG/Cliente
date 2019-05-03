@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.TransaccionTable;
 import Modelo.Transporte;
+import Vista.Ventanas;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,6 +21,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * FXML Controller class
@@ -28,14 +31,16 @@ import javafx.scene.input.MouseEvent;
  */
 public class PagosController implements Initializable {
     
+    Ventanas v = new Ventanas();
+    
     private static final String NUMERIC_STRING ="0123456789";
 
     @FXML
-    private TableView<?> TablaPagos;
+    private TableView<TransaccionTable> TablaPagos;
     @FXML
-    private TableColumn<?, ?> IDConcepto;
+    private TableColumn<TransaccionTable, String> IDConcepto;
     @FXML
-    private TableColumn<?, ?> PrecioConcepto;
+    private TableColumn<TransaccionTable, String> PrecioConcepto;
     @FXML
     private TextField TextNCuentaPagos;
     @FXML
@@ -52,6 +57,7 @@ public class PagosController implements Initializable {
     private TableColumn<TransaccionTable, String> Fecha;
     @FXML
     private TextField TextNCuentaHistorial;
+    double total;
 
     public static String Account(int i) {
         StringBuilder builder = new StringBuilder();
@@ -72,22 +78,40 @@ public class PagosController implements Initializable {
         CuentaDestino.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("CuentaDestino"));
         Monto.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("Monto"));
         Fecha.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("Fecha"));
+        
+        IDConcepto.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("ID"));
+        PrecioConcepto.setCellValueFactory(new PropertyValueFactory<TransaccionTable, String>("Monto"));
+        
+        ObservableList<TransaccionTable> Concepto = FXCollections.observableArrayList();
+
+        JSONArray jsonarray = new JSONArray(getAllCarrito(LoginController.neim));
+        for(int i=0; i<jsonarray.length(); i++){
+            JSONObject objeto = jsonarray.getJSONObject(i);
+            total+=objeto.getDouble("precio");
+            Concepto.add(new TransaccionTable(objeto.getString("nombre"), String.valueOf(objeto.getDouble("precio"))));
+        }
+        TablaPagos.getItems().addAll(Concepto);
+        PagoTotal.setText(PagoTotal.getText()+" "+String.valueOf(total));
     }    
 
     @FXML
-    private void Inicio(MouseEvent event) {
+    private void Inicio(MouseEvent event) throws Exception {
+        v.startInicio();
     }
 
     @FXML
-    private void Terrestre(ActionEvent event) {
+    private void Terrestre(ActionEvent event) throws Exception {
+        v.startTerrestre();
     }
 
     @FXML
-    private void Aereo(ActionEvent event) {
+    private void Aereo(ActionEvent event) throws Exception {
+        v.startAereo();
     }
 
     @FXML
-    private void Hoteles(ActionEvent event) {
+    private void Hoteles(ActionEvent event) throws Exception {
+        v.startHoteles();
     }
 
     @FXML
@@ -99,11 +123,16 @@ public class PagosController implements Initializable {
     }
 
     @FXML
-    private void vaciarCarrito(ActionEvent event) {
+    private void vaciarCarrito(ActionEvent event) throws Exception {
+        borrarCarrito(LoginController.neim);
+        v.startPagos();
     }
 
     @FXML
-    private void Pagar(ActionEvent event) {
+    private void Pagar(ActionEvent event) throws Exception {
+        transaccion(TextNCuentaPagos.getText(), "0000111122223333", String.valueOf((int)total));
+        borrarCarrito(LoginController.neim);
+        v.startPagos();
     }
 
     @FXML
@@ -140,6 +169,24 @@ public class PagosController implements Initializable {
         registro.pasarela.Pasarela_Service service = new registro.pasarela.Pasarela_Service();
         registro.pasarela.Pasarela port = service.getPasarelaPort();
         return port.consultarHistorial(noCompania);
+    }
+
+    private static String getAllCarrito(java.lang.String idCliente) {
+        mx.uv.Carrito_Service service = new mx.uv.Carrito_Service();
+        mx.uv.Carrito port = service.getCarritoPort();
+        return port.getAllCarrito(idCliente);
+    }
+
+    private static String transaccion(java.lang.String noCuentaOrigen, java.lang.String noCuentaDestino, java.lang.String monto) {
+        registro.pasarela.Pasarela_Service service = new registro.pasarela.Pasarela_Service();
+        registro.pasarela.Pasarela port = service.getPasarelaPort();
+        return port.transaccion(noCuentaOrigen, noCuentaDestino, monto);
+    }
+
+    private static String borrarCarrito(java.lang.String idCliente) {
+        mx.uv.Carrito_Service service = new mx.uv.Carrito_Service();
+        mx.uv.Carrito port = service.getCarritoPort();
+        return port.borrarCarrito(idCliente);
     }
     
 }

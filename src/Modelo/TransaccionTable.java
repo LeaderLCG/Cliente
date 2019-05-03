@@ -27,6 +27,11 @@ public class TransaccionTable {
         this.Fecha= new SimpleStringProperty(Fecha);
     }
     
+    public TransaccionTable(String Concepto, String Costo){
+        this.ID=new SimpleStringProperty(Concepto);
+        this.Monto=new SimpleStringProperty(Costo);
+    }
+    
     public String getID(){
         return ID.get();
     }
